@@ -1,0 +1,128 @@
+/**
+* These styles are the core of Antioch
+* They provide the layout declarations
+* and a basic color guide for the columns
+*
+* Antioch is a layout created by Danny Wahl http://iyware.com/portfolio/antioch/
+* based on Matthew James Taylor's Holy Grail 3 column layout 
+* http://matthewjamestaylor.com/blog/ultimate-multi-column-liquid-layouts-em-and-pixel-widths
+* Full details of these projects can be found at the above links
+*/
+
+/* 1 Column View (Default) */
+#colmask {
+    overflow: hidden;
+}
+
+#colmid,
+#colleft {
+    clear: both;
+    float: none;
+    position: relative;
+    width: 100%;
+}
+
+#col1,
+#col2,
+#col3 {
+    position: relative;
+}
+
+#col1 {
+    background: #f2f2f2;
+}
+
+#col2, #col3 {
+    background: #eaeaea;
+}
+
+.container {
+    padding: 10px;
+}
+#col2 .container {
+    width: 220px;
+}
+#col3 .container {
+    width: 220px;
+}
+/* 2 Column View */
+@media screen and (min-width:481px) {
+    #colmask {
+	    background: #f2f2f2;
+    }
+
+    #colmid {
+    	left: 0;
+	    width: 200%;
+    }
+
+    #colleft {
+	    left: 50%;
+    	margin-left: 0;
+    	width: 100%;
+    }
+
+    #col1wrap {
+	    float: right;
+	    position: relative;
+	    right: 100%;
+	    width: 50%;
+    }
+
+    #col1 {
+	    margin-left: 240px;
+	    margin-right: 0;
+    }
+
+    #col2 {
+	    float: left;
+	    left: 0;
+	    margin-left: -50%;
+	    width: 240px;
+    }
+
+    #col3 {
+	    clear: left;
+	    float: left;
+	    left: 0;
+	    margin-left: -50%;
+	    width: 240px;
+    }
+}
+
+/* 3 Column View */
+@media screen and (min-width:769px) {
+    #colmask {
+	    background: #eaeaea;
+    }
+
+	#colmid {
+	    left: 240px;
+	    float: left;
+	    background: #f2f2f2;
+    }
+
+    #colleft {
+	    float: left;
+	    margin-left: -480px;
+	    background: #eaeaea;
+    }
+
+    #col1wrap {
+	    background: transparent;
+    }
+
+    #col1 {
+	    margin-left: 480px;
+    }
+
+    #col2 {
+	    left: 240px;
+    }
+
+    #col3 {
+	    clear: none;
+	    margin-left: 0;
+    }
+}
+
