@@ -27,7 +27,7 @@ $string['choosereadme'] = '
 <div class="well">
 <h2>standardbs</h2>
 <p><img class=img-polaroid src="standardbs/pix/screenshot.jpg" /></p>
-</div>
+</div> 
 <div class="well">
 <h3>About</h3>
 <p>standardbs is a modified Moodle bootstrap theme which inherits styles and renderers from its parent theme.</p>

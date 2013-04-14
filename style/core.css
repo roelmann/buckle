@@ -13,7 +13,7 @@
 .block_settings .leaf img,
 .block_navigation p.tree_item a img.smallicon {
     display: inline-block;
-}
+} 
 
 /* Overrides to bootstrap css re minor layout issues - 
  * see pagelayout file for major layout overrides

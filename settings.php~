@@ -18,7 +18,7 @@
  * Richard Oelmann's standardbs theme, an extension of the Moodle Core standardbs theme which builds on bootstrap as a parent
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
- * 
+ *
  * @package   Moodle standardbs theme
  * @copyright 2013 Moodle, moodle.org
  * @copyright 2013 Richard Oelmann, editcons.net

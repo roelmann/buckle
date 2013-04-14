@@ -58,7 +58,7 @@ function standardbs_process_css($css, $theme) {
     //if (is_null($replacement)) {
     //    $replacement = '';
     //}
- 
+
     //$css = str_replace($tag, $replacement, $css);
 
     //return $css;
