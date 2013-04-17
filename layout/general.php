@@ -37,6 +37,7 @@ $hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->regio
 $showsidepre = ($hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT));
 $showsidepost = ($hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT));
 
+$haslogininfo = (empty($PAGE->layout_options['nologininfo']));
 /* Create variables for settings options */
 $hasfootnote = (!empty($PAGE->theme->settings->footnote));
 
@@ -73,7 +74,9 @@ if ($showsidepre && !$showsidepost) {
     $layout = 'content-only';
 }
 $bodyclasses[] = $layout;
-
+if ($hascustommenu) {
+    $bodyclasses[] = 'has_custom_menu';
+}
 ?>
 <!-- MAIN PAGE CONTENT
 ---------------------- -->
@@ -96,67 +99,71 @@ $bodyclasses[] = $layout;
     <body id="<?php p($PAGE->bodyid) ?>" class="<?php p($PAGE->bodyclasses.' '.join($bodyclasses)) ?>">
     <?php echo $OUTPUT->standard_top_of_body_html() ?>
     <div id="page">
-    
-        <?php if ($hasheading) { ?>
-        <header role="banner"> <!--HTML5 header section used as main page header-->
-            <div class="brand">
-                <h1 class="headermain"><?php echo $PAGE->heading ?></h1> <!-- main page title - use css to add logo if required -->
-                <div class="headermenu"> <!-- div to hold login info and lang menu -->
-                    <?php
-                        echo $OUTPUT->login_info();
-                        if (!empty($PAGE->layout_options['langmenu'])) {
-                            echo $OUTPUT->lang_menu();
-                        }
-                        echo $PAGE->headingmenu;
-                    ?>
-                </div>
-            </div>
-        </header>
-        <?php } ?>
-        <?php if ($hascustommenu) { ?> <!-- custommenu in HTML5 nav section-->
-            <nav role="navigation" class="navbar navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="workaround-collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <div class="nav-collapse collapse">
-                        <?php if ($hascustommenu) {
-                            echo $custommenu;
-                        } ?>
+        <?php if ($hasheading || $hasnavbar || !empty($courseheader)) { ?>
+            <div id="page-header">
+                <?php if ($hasheading) { ?>
+                <header role="banner"> <!--HTML5 header section used as main page header-->
+                    <div class="brand">
+                        <h1 class="headermain"><?php echo $PAGE->heading ?></h1> <!-- main page title - use css to add logo if required -->
+                        <div class="headermenu"> <!-- div to hold login info and lang menu -->
+                            <?php
+                                echo $OUTPUT->login_info();
+                                if (!empty($PAGE->layout_options['langmenu'])) {
+                                    echo $OUTPUT->lang_menu();
+                                }
+                                echo $PAGE->headingmenu;
+                            ?>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        <?php } ?>        
-        <?php if ($hasnavbar) { ?>
-            <nav class="breadcrumb-button"><?php echo $PAGE->button; ?></nav>
-            <?php echo $OUTPUT->navbar(); ?>
-        <?php } ?>
+                </header>
+                <?php } ?>
+                <?php if ($hascustommenu) { ?> <!-- custommenu in HTML5 nav section-->
+                    <nav role="navigation" class="navbar navbar-inner">
+                        <div class="container-fluid">
+                            <a class="btn btn-navbar" data-toggle="workaround-collapse" data-target=".nav-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </a>
+                            <div class="nav-collapse collapse">
+                                <?php if ($hascustommenu) {
+                                    echo $custommenu;
+                                } ?>
+                            </div>
+                        </div>
+                    </nav>
+                <?php } ?>        
+                <?php if ($hasnavbar) { ?>
+                    <nav class="breadcrumb-button"><?php echo $PAGE->button; ?></nav>
+                    <?php echo $OUTPUT->navbar(); ?>
+                <?php } ?>
         
-        <?php if (!empty($courseheader)) { ?>
-            <header>
-                <div id="course-header"><?php echo $courseheader; ?></div>
-            </header>
+                <?php if (!empty($courseheader)) { ?>
+                    <header>
+                        <div id="course-header"><?php echo $courseheader; ?></div>
+                    </header>
+                <?php } ?>
+            </div>
         <?php } ?>
-        
         <div id="page-content">
         <div id="colmask">
             <div id="colmid">
                 <div id="colleft">
                     <div id="col1wrap"><!-- Column 1 start -->
                         <section id="col1">
-                            <div class="container">
-                                <?php echo $coursecontentheader; ?>
-                                <?php echo $OUTPUT->main_content() ?>
-                                <?php echo $coursecontentfooter; ?>
+                            <div id="region-main">
+                                <div class="container region-content">
+                                    <?php echo $coursecontentheader; ?>
+                                    <?php echo $OUTPUT->main_content() ?>
+                                    <?php echo $coursecontentfooter; ?>
+                                </div>
                             </div>
                         </section>
                     </div><!-- Column 1 end -->
-                    <?php if ($hassidepre) { ?>
+                    <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
                     <aside id="col2"><!-- Column 2 start -->
                         <div id="region-pre" class="block-region region-content">
-                        <div class="container">
+                        <div class="container region-content">
                             <?php if (!right_to_left()) {
                                 echo $OUTPUT->blocks_for_region('side-pre');
                             } else if ($hassidepost) {
@@ -166,10 +173,10 @@ $bodyclasses[] = $layout;
                         </div>
                     </aside><!-- Column 2 end -->
                     <?php } ?>
-                    <?php if ($hassidepost) { ?>
+                    <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
                     <aside id="col3"><!-- Column 3 start -->
                         <div id="region-post" class="block-region region-content">
-                        <div class="container">
+                        <div class="container region-content">
                             <?php if (!right_to_left()) {
                                 echo $OUTPUT->blocks_for_region('side-post');
                             } else if ($hassidepre){
@@ -184,6 +191,11 @@ $bodyclasses[] = $layout;
         </div><!-- colmask end -->
         </div><!-- end of page-content -->
         
+        <?php if (!empty($coursefooter)) { ?>
+            <div id="course-footer"><?php echo $coursefooter; ?></div>
+        <?php } ?>
+
+        <?php if ($hasfooter) { ?>
         <footer id="page-footer"> <!-- HTML5 footer section -->
             <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')); ?></p>
 
@@ -193,8 +205,13 @@ $bodyclasses[] = $layout;
                </div>
             <?php } ?>
 
-            <?php echo $OUTPUT->standard_footer_html(); ?> <!-- Moodle standard/additional custom footer html -->
+            <?php
+                echo $OUTPUT->login_info();
+                echo $OUTPUT->home_link();
+                echo $OUTPUT->standard_footer_html(); 
+            ?> <!-- Moodle standard/additional custom footer html -->
         </footer>
+        <?php } ?>
     </div><!-- end of page div-->
     <?php echo $OUTPUT->standard_end_of_body_html() ?> <!-- Moodle standard/additional custom end of body html -->
     </body>
