@@ -1,0 +1,47 @@
+/* Overrides to bootstrap css to reinstate moodle core icons
+------------------------------------------------------------*/
+.coursebox .name a {
+    display:block;
+    background-image:url([[pix:moodle|i/course]]);
+    background-repeat: no-repeat;
+    padding-left:21px;
+    background-position: center left;
+}
+.coursebox.remotehost .name a {
+    background-image:url([[pix:moodle|i/mnethost]]);
+}
+.block_settings .leaf img,
+.block_navigation p.tree_item a img.smallicon {
+    display: inline-block;
+}
+
+/* Overrides to bootstrap css to reinstate docking
+------------------------------------------------------------*/
+div#dock {
+    display:block;
+}
+
+/* Overrides to bootstrap css re minor layout issues -
+ * see pagelayout file for major layout overrides
+------------------------------------------------------*/
+body {
+    padding-top: 0;
+}
+input, textarea, .uneditable-input {
+    width: 180px;
+}
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+    width: 95%;
+}
+.navbar-inner,
+.navbar .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.navbar,
+.breadcrumb {
+    margin-bottom: 5px;
+}

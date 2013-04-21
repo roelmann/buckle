@@ -1,6 +1,6 @@
 <?php
 // This file is part of Moodle - http://moodle.org/
-// 
+//
 // Moodle is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -15,12 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Richard Oelmann's Simpler theme, 
+ * Richard Oelmann's StandardBS theme, 
  * an extension of the Moodle Core simple theme which builds on bootstrap as a parent
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   Moodle Simpler theme
+ * @package   Moodle StandardBS theme
  * @copyright 2013 Moodle, moodle.org
  * @copyright 2013 Richard Oelmann, editcons.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -78,14 +78,10 @@ if ($hascustommenu) {
     $bodyclasses[] = 'has_custom_menu';
 }
 ?>
-<!-- MAIN PAGE CONTENT
----------------------- -->
 
-<!-- Doc type -->
-<?php echo $OUTPUT->doctype() ?>
+<?php echo $OUTPUT->doctype() ?> <!-- Doc type -->
 
-<!-- HTML Attributes -->
-<html <?php echo $OUTPUT->htmlattributes() ?>>
+<html <?php echo $OUTPUT->htmlattributes() ?>> <!-- HTML Attributes -->
 
 <!-- HEAD section -->
     <head>
@@ -104,7 +100,8 @@ if ($hascustommenu) {
                 <?php if ($hasheading) { ?>
                 <header role="banner"> <!--HTML5 header section used as main page header-->
                     <div class="brand">
-                        <h1 class="headermain"><?php echo $PAGE->heading ?></h1> <!-- main page title - use css to add logo if required -->
+                    <!-- main page title - use css to add logo if required -->
+                        <h1 class="headermain"><?php echo $PAGE->heading ?></h1>
                         <div class="headermenu"> <!-- div to hold login info and lang menu -->
                             <?php
                                 echo $OUTPUT->login_info();
@@ -116,8 +113,11 @@ if ($hascustommenu) {
                         </div>
                     </div>
                 </header>
-                <?php } ?>
-                <?php if ($hascustommenu) { ?> <!-- custommenu in HTML5 nav section-->
+                <?php
+                }
+                ?>
+                <!-- custommenu in HTML5 nav section-->
+                <?php if ($hascustommenu) {?>
                     <nav role="navigation" class="navbar navbar-inner">
                         <div class="container-fluid">
                             <a class="btn btn-navbar" data-toggle="workaround-collapse" data-target=".nav-collapse">
@@ -132,19 +132,27 @@ if ($hascustommenu) {
                             </div>
                         </div>
                     </nav>
-                <?php } ?>        
+                <?php
+                }
+                ?>        
                 <?php if ($hasnavbar) { ?>
                     <nav class="breadcrumb-button"><?php echo $PAGE->button; ?></nav>
                     <?php echo $OUTPUT->navbar(); ?>
-                <?php } ?>
+                <?php
+                }
+                ?>
         
                 <?php if (!empty($courseheader)) { ?>
                     <header>
                         <div id="course-header"><?php echo $courseheader; ?></div>
                     </header>
-                <?php } ?>
+                <?php
+                }
+                ?>
             </div>
-        <?php } ?>
+        <?php
+        }
+        ?>
         <div id="page-content">
         <div id="colmask">
             <div id="colmid">
@@ -168,24 +176,30 @@ if ($hascustommenu) {
                                 echo $OUTPUT->blocks_for_region('side-pre');
                             } else if ($hassidepost) {
                                 echo $OUTPUT->blocks_for_region('side-post');
-                            } ?>
+                            }
+                            ?>
                         </div>
                         </div>
                     </aside><!-- Column 2 end -->
-                    <?php } ?>
+                    <?php
+                    }
+                    ?>
                     <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
                     <aside id="col3"><!-- Column 3 start -->
                         <div id="region-post" class="block-region region-content">
                         <div class="container region-content">
                             <?php if (!right_to_left()) {
                                 echo $OUTPUT->blocks_for_region('side-post');
-                            } else if ($hassidepre){
+                            } else if ($hassidepre) {
                                 echo $OUTPUT->blocks_for_region('side-pre');
-                            } ?>
+                            }
+                            ?>
                         </div>
                         </div>
                     </aside><!-- Column 3 end -->
-                    <?php } ?>
+                    <?php
+                    }
+                    ?>
                 </div><!-- colleft end -->
             </div><!-- colmid end -->
         </div><!-- colmask end -->
@@ -193,7 +207,9 @@ if ($hascustommenu) {
         
         <?php if (!empty($coursefooter)) { ?>
             <div id="course-footer"><?php echo $coursefooter; ?></div>
-        <?php } ?>
+        <?php
+        }
+        ?>
 
         <?php if ($hasfooter) { ?>
         <footer id="page-footer"> <!-- HTML5 footer section -->
@@ -203,15 +219,19 @@ if ($hascustommenu) {
                <div class="footnote text-center">
                    <?php echo $PAGE->theme->settings->footnote; ?>
                </div>
-            <?php } ?>
+            <?php
+            }
+            ?>
 
             <?php
                 echo $OUTPUT->login_info();
                 echo $OUTPUT->home_link();
-                echo $OUTPUT->standard_footer_html(); 
+                echo $OUTPUT->standard_footer_html();
             ?> <!-- Moodle standard/additional custom footer html -->
         </footer>
-        <?php } ?>
+        <?php
+        }
+        ?>
     </div><!-- end of page div-->
     <?php echo $OUTPUT->standard_end_of_body_html() ?> <!-- Moodle standard/additional custom end of body html -->
     </body>

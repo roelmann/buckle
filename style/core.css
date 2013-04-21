@@ -1,41 +1,23 @@
-/* Overrides to bootstrap css to reinstate moodle core icons
-------------------------------------------------------------*/
-.coursebox .name a {
-    display:block;
-    background-image:url([[pix:moodle|i/course]]);
-    background-repeat: no-repeat;
-    padding-left:21px;
-    background-position: center left;
-}
-.coursebox.remotehost .name a {
-    background-image:url([[pix:moodle|i/mnethost]]);
-}
-.block_settings .leaf img,
-.block_navigation p.tree_item a img.smallicon {
-    display: inline-block;
-} 
+/* StandardBS Core CSS
+------------------*/
 
-/* Overrides to bootstrap css re minor layout issues - 
- * see pagelayout file for major layout overrides
-------------------------------------------------------*/
-body {
-    padding-top: 0;
+#dock li{
+    list-style: none outside none;
 }
-input, textarea, .uneditable-input {
-    width: 180px;
+
+.headermain {
+    display:inline;
+    float:left;
+    margin-left:250px;
+    margin-top:12px;
 }
-.container,
-.navbar-static-top .container,
-.navbar-fixed-top .container,
-.navbar-fixed-bottom .container {
-    width: 95%;
+.headermenu {
+    display:inline;
+    float:right;
+    padding-right:15px;
 }
-.navbar-inner,
-.navbar .container-fluid {
-    padding-left: 0;
-    padding-right: 0;
-}
-.navbar,
-.breadcrumb {
-    margin-bottom: 5px;
+.brand {
+    background: transparent url([[setting:logo]]) no-repeat 15px top;
+    min-height:75px;
+    padding-left:15px;
 }

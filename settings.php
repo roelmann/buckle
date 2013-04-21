@@ -31,15 +31,10 @@ if ($ADMIN->fulltree) {
 
     // Logo file setting.
     $name = 'theme_standardbs/logo';
-    $title = get_string('logo','theme_standardbs');
+    $title = get_string('logo', 'theme_standardbs');
     $description = get_string('logodesc', 'theme_standardbs');
-    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
-    //$setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
-    //$setting->set_updatedcallback('theme_reset_all_caches');
-    $settings->add($setting);
-
-    $default = 'logo';
-    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_URL);
+    $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
+    $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
     // Custom CSS file.

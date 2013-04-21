@@ -27,7 +27,7 @@ $string['choosereadme'] = '
 <div class="well">
 <h2>standardbs</h2>
 <p><img class=img-polaroid src="standardbs/pix/screenshot.jpg" /></p>
-</div> 
+</div>
 <div class="well">
 <h3>About</h3>
 <p>standardbs is a modified Moodle bootstrap theme which inherits styles and renderers from its parent theme.</p>
@@ -53,8 +53,8 @@ $string['footnote'] = 'Footnote';
 $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed in the footer throughout your Moodle site.';
 
 $string['logo'] = 'Logo';
-//$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.';
-$string['logodesc'] = '<p>Input the URL to your logo.  Leave blank for no image.</p><p>This can be used in one of three protocol types:<ul><li><p>Moodle Output (relative to theme):</p><p><code>logo/companylogo</code></p></li><li><p>Full path:</p><p><code>http://domain.com/theme/image.php?theme=themename&image=logo&rev=1&component=theme</code><br /><code>http://domain.com/path/to/image.jpg</code></p></li><li><p>Relative Path:</p><p><code>/path/to/file/companylogo.png</code></p></li></ul></p>';
+$string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.';
+
 $string['pluginname'] = 'standardbs';
 
 $string['region-side-post'] = 'Right';

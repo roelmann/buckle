@@ -27,17 +27,9 @@
 
 function standardbs_process_css($css, $theme) {
 
-    //Get the path to the logo url from settings - 'old' style if filepicker option is not integrated for 2.5
-    if (!empty($theme->settings->logo)) {
-        $logo = $theme->settings->logo;
-    } else {
-        $logo = null;
-    }
+    // Set the background image for the logo.
+    $logo = $theme->setting_file_url('logo', 'logo');
     $css = standardbs_set_logo($css, $logo);
-    
-    // Set the background image for the logo. For if filepicker option is integrated and used
-    //$logo = $theme->setting_file_url('logo', 'logo');
-    //$css = standardbs_set_logo($css, $logo);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -50,45 +42,28 @@ function standardbs_process_css($css, $theme) {
     return $css;
 }
 
-//Use this version if filepicker is used
-//function standardbs_set_logo($css, $logo) {
-    //global $OUTPUT;
-    //$tag = '[[setting:logo]]';
-    //$replacement = $logo;
-    //if (is_null($replacement)) {
-    //    $replacement = '';
-    //}
- 
-    //$css = str_replace($tag, $replacement, $css);
-
-    //return $css;
-//}
-
-//Use this version if 'old' url logo method is used
 function standardbs_set_logo($css, $logo) {
     global $OUTPUT;
     $tag = '[[setting:logo]]';
-    if (is_null($logo)) {
-        $replacement = $OUTPUT->pix_url('logo', 'theme'); //Default image
+    $replacement = $logo;
+    if (is_null($replacement)) {
+        $replacement = $OUTPUT->pix_url('logo', 'theme');
     }
-    else {
-        $protocol = '://';
-        $ntp = strpos($logo, $protocol); // Check to see if a networking protocol is used
-        if($ntp === false) { // No networking protocol used
-            $relative = '/';
-            $rel = strpos($logo, $relative); // Check to see if a relative path is used
-            if($rel !== 0) { // Doesn't start with a slash
-                $replacement = $OUTPUT->pix_url("$logo", 'theme'); // Using Moodle output
-            } else {
-                $replacement = $logo;
-            }
-        } else {
-            $replacement = $logo;
-        }
-    }
+
     $css = str_replace($tag, $replacement, $css);
+
     return $css;
 }
+
+function theme_standardbs_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+    if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
+        $theme = theme_config::load('standardbs');
+        return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
+    } else {
+        send_file_not_found();
+    }
+}
+
 
 
 function standardbs_set_customcss($css, $customcss) {

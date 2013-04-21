@@ -1,4 +1,4 @@
-<?php 
+<?php
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -27,17 +27,16 @@
 
 $THEME->name = 'standardbs';
 
-/////////////////////////////////
-// The only thing you need to change in this file when copying it to
-// create a new theme is the name above. You also need to change the name
-// in version.php and lang/en/theme_simple.php as well.
-//////////////////////////////////
-//
+/*
+ * The only thing you need to change in this file when copying it to
+ * create a new theme is the name above, and in the csspostprocess
+ * line at the bottom of this file. You also need to change the name
+ * in version.php and lang/en/theme_standardbs.php as well.
+ */
+
 $THEME->doctype = 'html5';
 $THEME->parents = array('bootstrap');
-$THEME->sheets = array('core','pagelayout','standardbs','custom');
-$THEME->supportscssoptimisation = false;
-$THEME->yuicssmodules = array();
+$THEME->sheets = array('reset', 'pagelayout', 'dock', 'core', 'custom');
 
 $THEME->editor_sheets = array();
 
@@ -80,7 +79,7 @@ $THEME->layouts = array(
     ),
     'frontpage' => array(
         'file' => 'general.php',
-        'regions' => array('side-pre','side-post'),
+        'regions' => array('side-pre', 'side-post'),
         'defaultregion' => 'side-pre',
          'options' => array('nonavbar'=>true),
     ),
@@ -151,6 +150,11 @@ $THEME->layouts = array(
                            'nologinlinks'=>true, 'nocourseheaderfooter'=>true),
     ),
 );
+
+$THEME->enable_dock = true;
+
+$THEME->supportscssoptimisation = false;
+$THEME->yuicssmodules = array();
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->csspostprocess = 'standardbs_process_css';
