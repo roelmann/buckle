@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Richard Oelmann's standardbs theme, an extension of the Moodle Core standardbs theme which builds on bootstrap as a parent
+ * Richard Oelmann's buckle theme, an extension of the Moodle Core buckle theme which builds on bootstrap as a parent
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   Moodle standardbs theme
+ * @package   Moodle buckle theme
  * @copyright 2013 Moodle, moodle.org
  * @copyright 2013 Richard Oelmann, editcons.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,4 +29,4 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->version   = 2013041400;
 $plugin->requires  = 2013040500;
-$plugin->component = 'theme_standardbs';
+$plugin->component = 'theme_buckle';

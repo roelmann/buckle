@@ -1,4 +1,4 @@
-standardbs
+buckle
 ==========
 
 A basic theme using the moodle_bootstrap as a parent. It is aimed as a starting point for those who would like to
@@ -16,25 +16,26 @@ the right of that header along with the language menu, removing these from the c
 has a 'standard' url based logo setting although it is anticipated that this will be updated when the new filepicker
 setting is integrated.
 
-In the main body of the page, the standardbs theme replaces the default icons, many of which are hidden by the default
+In the main body of the page, the buckle theme replaces the default icons, many of which are hidden by the default
 bootstrap theme.
 
 Additional settings are kept to a minimum in this theme (logo, customcss and footnote) although it is anticipated
 that themes built on this will utilise settings to a great effect in customising bootstrap in future
 
 The theme provides several css files
-* core.css - which contains specific overrides for the parent css
-* pagelayout.css - the antioch layout css
-* standardbs.css - the theme specific css
+* reset.css - which contains specific overrides for the parent css
+* pagelayout.css - the responsive 3column HolyGrail layout css
+* dock.css - the css required for the dock
+* core.css - the theme specific css
 * custom.css - the final css file which applies the settings from the customcss setting box
 
 Credits:
 ========
-Moodle_standardbs
+Moodle_buckle
 * author Richard Oelmann http://editcons.net
 It is fully acknowledged that this theme would not be possible without the work done by others - see below
 
-Moodle_bootstrap (parent theme)
+Moodle_bootstrapbase (parent theme)
 * authors   Bas Brands, David Scotson www.sonsbeekmedia.nl
 created with the help of:
 Stuart Lamour, Mark Aberdour, Paul Hibbitts, Mary Evans
@@ -43,5 +44,5 @@ Antioch (layout)
 * author Danny Wahl http://iyware.com
 based on the Holy Grail layout work by Matthew James Taylor http://matthewjamestaylor.com/
 
-Moodle_Simple (foundation theme - used as a starting point to clone and create this theme)
+Moodle_Clean (foundation theme - used as a starting point to clone and create this theme)
 * author Mary Evans 

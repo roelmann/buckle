@@ -15,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Richard Oelmann's standardbs theme, an extension of the Moodle Core standardbs theme which builds on bootstrap as a parent
+ * Richard Oelmann's buckle theme, an extension of the Moodle Core buckle theme which builds on bootstrap as a parent
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  * 
- * @package   Moodle standardbs theme
+ * @package   Moodle buckle theme
  * @copyright 2013 Moodle, moodle.org
  * @copyright 2013 Richard Oelmann, editcons.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -30,25 +30,25 @@ defined('MOODLE_INTERNAL') || die;
 if ($ADMIN->fulltree) {
 
     // Logo file setting.
-    $name = 'theme_standardbs/logo';
-    $title = get_string('logo', 'theme_standardbs');
-    $description = get_string('logodesc', 'theme_standardbs');
+    $name = 'theme_buckle/logo';
+    $title = get_string('logo', 'theme_buckle');
+    $description = get_string('logodesc', 'theme_buckle');
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo');
     $setting->set_updatedcallback('theme_reset_all_caches');
     $settings->add($setting);
 
     // Custom CSS file.
-    $name = 'theme_standardbs/customcss';
-    $title = get_string('customcss', 'theme_standardbs');
-    $description = get_string('customcssdesc', 'theme_standardbs');
+    $name = 'theme_buckle/customcss';
+    $title = get_string('customcss', 'theme_buckle');
+    $description = get_string('customcssdesc', 'theme_buckle');
     $default = '';
     $setting = new admin_setting_configtextarea($name, $title, $description, $default);
     $settings->add($setting);
 
     // Footnote setting.
-    $name = 'theme_standardbs/footnote';
-    $title = get_string('footnote', 'theme_standardbs');
-    $description = get_string('footnotedesc', 'theme_standardbs');
+    $name = 'theme_buckle/footnote';
+    $title = get_string('footnote', 'theme_buckle');
+    $description = get_string('footnotedesc', 'theme_buckle');
     $default = '';
     $setting = new admin_setting_confightmleditor($name, $title, $description, $default);
     $settings->add($setting);

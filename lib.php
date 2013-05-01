@@ -15,21 +15,21 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Richard Oelmann's standardbs theme, an extension of the Moodle Core standardbs theme which builds on bootstrap as a parent
+ * Richard Oelmann's buckle theme, an extension of the Moodle Core buckle theme which builds on bootstrap as a parent
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   Moodle standardbs theme
+ * @package   Moodle buckle theme
  * @copyright 2013 Moodle, moodle.org
  * @copyright 2013 Richard Oelmann, editcons.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-function standardbs_process_css($css, $theme) {
+function buckle_process_css($css, $theme) {
 
     // Set the background image for the logo.
     $logo = $theme->setting_file_url('logo', 'logo');
-    $css = standardbs_set_logo($css, $logo);
+    $css = buckle_set_logo($css, $logo);
 
     // Set custom CSS.
     if (!empty($theme->settings->customcss)) {
@@ -37,12 +37,12 @@ function standardbs_process_css($css, $theme) {
     } else {
         $customcss = null;
     }
-    $css = standardbs_set_customcss($css, $customcss);
+    $css = buckle_set_customcss($css, $customcss);
 
     return $css;
 }
 
-function standardbs_set_logo($css, $logo) {
+function buckle_set_logo($css, $logo) {
     global $OUTPUT;
     $tag = '[[setting:logo]]';
     $replacement = $logo;
@@ -55,9 +55,9 @@ function standardbs_set_logo($css, $logo) {
     return $css;
 }
 
-function theme_standardbs_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
+function theme_buckle_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
     if ($context->contextlevel == CONTEXT_SYSTEM and $filearea === 'logo') {
-        $theme = theme_config::load('standardbs');
+        $theme = theme_config::load('buckle');
         return $theme->setting_file_serve('logo', $args, $forcedownload, $options);
     } else {
         send_file_not_found();
@@ -66,7 +66,7 @@ function theme_standardbs_pluginfile($course, $cm, $context, $filearea, $args, $
 
 
 
-function standardbs_set_customcss($css, $customcss) {
+function buckle_set_customcss($css, $customcss) {
     $tag = '[[setting:customcss]]';
     $replacement = $customcss;
     if (is_null($replacement)) {

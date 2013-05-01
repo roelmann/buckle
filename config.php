@@ -15,23 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Richard Oelmann's StandardBS theme, an extension of the Moodle Core bootstrap theme as a parent
+ * Richard Oelmann's Buckle theme, an extension of the Moodle Core bootstrap theme as a parent
  * For full information about creating Moodle themes, see:
  * http://docs.moodle.org/dev/Themes_2.0
  *
- * @package   Moodle StandardBS theme
+ * @package   Moodle Buckle theme
  * @copyright 2013 Moodle, moodle.org
  * @copyright 2013 Richard Oelmann, http://editcons.net
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$THEME->name = 'standardbs';
+$THEME->name = 'buckle';
 
 /*
  * The only thing you need to change in this file when copying it to
  * create a new theme is the name above, and in the csspostprocess
  * line at the bottom of this file. You also need to change the name
- * in version.php and lang/en/theme_standardbs.php as well.
+ * in version.php and lang/en/theme_buckle.php as well.
  */
 
 $THEME->doctype = 'html5';
@@ -155,7 +155,7 @@ $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = array();
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
-$THEME->csspostprocess = 'standardbs_process_css';
+$THEME->csspostprocess = 'buckle_process_css';
 
 $useragent = '';
 if (!empty($_SERVER['HTTP_USER_AGENT'])) {

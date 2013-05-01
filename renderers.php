@@ -17,12 +17,12 @@
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_standardbs
+ * @package    theme_buckle
  * @copyright  2012
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class theme_standardbs_core_renderer extends core_renderer {
+class theme_buckle_core_renderer extends core_renderer {
 
     /*
      * This renders a notification message.
