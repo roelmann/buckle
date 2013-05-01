@@ -35,15 +35,13 @@ $THEME->name = 'standardbs';
  */
 
 $THEME->doctype = 'html5';
-$THEME->parents = array('bootstrap');
+$THEME->parents = array('bootstrapbase');
 $THEME->sheets = array('reset', 'pagelayout', 'dock', 'core', 'custom');
 
 $THEME->editor_sheets = array();
 
 $THEME->plugins_exclude_sheets = array(
     'block' => array(
-        'settings',
-        'navigation',
         'html',
     ),
     'gradereport' => array(

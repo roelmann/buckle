@@ -1,127 +1,268 @@
-/**
-* These styles are the core of Antioch
-* They provide the layout declarations
-* and a basic color guide for the columns
-*
-* Antioch is a layout created by Danny Wahl http://iyware.com/portfolio/antioch/
-* based on Matthew James Taylor's Holy Grail 3 column layout 
-* http://matthewjamestaylor.com/blog/ultimate-multi-column-liquid-layouts-em-and-pixel-widths
-* Full details of these projects can be found at the above links
-*/
+/* Page Layout clips - taken from Danny Wahl's Zebra theme and based on Danny's Rebase responsive layouts */
+/* All colour settings removed from this section, and all theme settings standardised to Danny's default settings during development */
+/*************************************************************************************************************/
 
-/* 1 Column View (Default) */
-#colmask {
-    overflow: hidden;
+/* All Views */
+
+html {
+    height: 100%; /* Prevent pages with small content from cutting off background image: doesn't work until a body tag has a height too */
 }
 
-#colmid,
-#colleft {
+body {
+    padding: 0 10px 10px 10px;
+}
+
+hr {
+    border-width: 0;
+    height: 1px;
+    line-height: 0;
+    page-break-after: always;
+    text-align: center;
+}
+
+#page {
+    margin: 0 auto;
+    max-width: 100%; /*default setting */
+    overflow: hidden;
+    position: relative;
+}
+
+#page-header,
+#custommenu,
+.navbar,
+#page-content,
+#page-footer,
+#region-main-box,
+#region-post-box {
     clear: both;
     float: none;
     position: relative;
     width: 100%;
 }
 
-#col1,
-#col2,
-#col3 {
+#region-main,
+#region-pre,
+#region-post {
     position: relative;
 }
 
-#col1 {
-    background: #f2f2f2;
+.side-pre-only #region-post,
+.side-post-only #region-pre,
+.content-only #region-pre,
+.content-only #region-post {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: none;
+}
+.headermenu {
+    visibility:hidden;
+    width:0;
+    height:0;
+}
+#page-header .headermain {
+    visibility:hidden;
+    width:0;
+    height:0;
+}
+input#topadminsearchquery {
+    visibility:hidden;
+    width:0;
 }
 
-#col2, #col3 {
-    background: #eaeaea;
+.content-only #region-main {
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.container {
-    padding: 10px;
+.region-content {
+    padding: 4px 4px 0 4px;
 }
-#col2 .container {
-    width: 220px;
+
+#region-main .region-content {
+    padding-bottom: 4px;
 }
-#col3 .container {
-    width: 220px;
+
+#region-post .region-content {
+    padding-top: 0;
 }
+
+.side-post-only #region-post .region-content {
+    padding-top: 4px;
+}
+
 /* 2 Column View */
-@media screen and (min-width:481px) {
-    #colmask {
-	    background: #f2f2f2;
-    }
 
-    #colmid {
+@media screen and (min-width:481px) { /*default setting */
+    #region-main-box {
     	left: 0;
-	    width: 200%;
+    	width: 200%;
     }
 
-    #colleft {
-	    left: 50%;
+    #region-post-box {
+    	left: 50%;
     	margin-left: 0;
     	width: 100%;
     }
 
-    #col1wrap {
-	    float: right;
-	    position: relative;
-	    right: 100%;
-	    width: 50%;
+    #region-main-wrap {
+    	float: right;
+    	position: relative;
+    	right: 100%;
+    	width: 50%;
     }
 
-    #col1 {
-	    margin-left: 240px;
-	    margin-right: 0;
+    #region-main {
+    	margin-left: 200px;   /* default setting */
+    	margin-right: 0;
     }
 
-    #col2 {
-	    float: left;
-	    left: 0;
-	    margin-left: -50%;
-	    width: 240px;
+    #region-pre {
+    	float: left;
+    	left: 0;
+    	margin-left: -50%;
+    	width: 200px;   /*default setting */
     }
 
-    #col3 {
-	    clear: left;
-	    float: left;
-	    left: 0;
-	    margin-left: -50%;
-	    width: 240px;
+    #region-post {
+    	clear: left;
+    	float: left;
+    	left: 0;
+    	margin-left: -50%;
+    	width: 200px;   /*default setting */
     }
+
+    .headermenu {
+        visibility:visible;
+        height:50px;
+        width:120px;
+        margin:0 2px;
+    }
+    #profilepic {
+        visibility:hidden;
+        width:0;
+        height:0;
+    }
+    #page-header .headermain {
+        visibility:hidden;
+        width:0;
+        height:0;
+    }
+    input#topadminsearchquery {
+    visibility:hidden;
+    width:0;
+}
 }
 
 /* 3 Column View */
-@media screen and (min-width:769px) {
-    #colmask {
-	    background: #eaeaea;
-    }
 
-	#colmid {
-	    left: 240px;
+@media screen and (min-width:769px) {    /*default setting */
+    #region-main-box {
+    	left: 200px;   /*default setting */
 	    float: left;
-	    background: #f2f2f2;
-    }
+}
 
-    #colleft {
-	    float: left;
-	    margin-left: -480px;
-	    background: #eaeaea;
-    }
+    #region-post-box {
+    	float: left;
+    	margin-left: -400px;   /*default setting */
+}
 
-    #col1wrap {
-	    background: transparent;
-    }
+    #region-main {
+    	margin-left: 400px;   /*default setting */
+}
 
-    #col1 {
-	    margin-left: 480px;
-    }
+    #region-pre {
+        left: 200px;   /*default setting */
+}
 
-    #col2 {
-	    left: 240px;
-    }
+    #region-post {
+        clear: none;
+        margin-left: 0;
+}
 
-    #col3 {
-	    clear: none;
-	    margin-left: 0;
+    #region-post .region-content {
+        padding-top: 4px;
+}
+
+    .side-pre-only #region-post-box {
+        margin-left: -200px;   /*default setting */
+}
+
+    .side-pre-only #region-main {
+        margin-left: 200px;   /*default setting */
+}
+
+    .side-pre-only #region-pre {
+        left: 0;
+}
+
+    .side-post-only #region-main-box {
+        left: 0;
+}
+
+    .side-post-only #region-post-box {
+        margin-left: -200px;   /*default setting */
+}
+
+    .side-post-only #region-main {
+        margin-left: 200px;   /*default setting */
+}
+
+    .content-only #region-main-box {
+        left: 0;
+}
+
+    .content-only #region-post-box {
+        margin-left: 0;
+}
+    .headermenu {
+    visibility:visible;
+    height:75px;
+    width:225px;
+    margin:0 2px 0 0;
     }
+    #profilepic {
+    visibility:visible;
+    width:60px;
+    height:70px;
+    }
+    #page-header .headermain {
+        visibility:visible;
+        width:350px;
+    }
+    input#topadminsearchquery {
+    visibility:visible;
+    width:200px;
+}
+}
+
+/* Report Layout */
+
+.pagelayout-report #report-main-content {
+    float: left;
+    width: 100%;
+}
+
+.pagelayout-report #report-main-content .region-content {
+    margin-left: 200px;
+    overflow-x: visible;
+    overflow-y: hidden;
+}
+
+.pagelayout-report #report-region-wrap {
+    float: right;
+    left: -100%;
+    position: relative;
+    width: 0;
+}
+
+.pagelayout-report #report-region-pre {
+    width: 200px;
+}
+
+/* RTL Hack */
+
+.dir-rtl {
+    direction: ltr;
+    overflow-x: hidden;
 }
