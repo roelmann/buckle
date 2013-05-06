@@ -1,26 +1,24 @@
 buckle
 ==========
 
-A basic theme using the moodle_bootstrap as a parent. It is aimed as a starting point for those who would like to
+A basic theme using the moodle_bootstrapbase as a parent. It is aimed as a starting point for those who would like to
 adopt bootstrap as a parent theme, but want to start from a look/layout which is more familiar as a design choice.
 It is not designed to be a finished theme for production use, but a theme to be a starting point for building on.
 
-This theme takes the master bootstrap theme from core as its parent and then replaces the layout with Danny Wahl's 
+This theme takes the master bootstrapbase theme from core as its parent and then replaces the layout with Danny Wahl's 
 Antioch layout (http://iyware.com/portfolio/antioch/) which uses Matthew James' Taylor's Holy Grail 3 column layout
 (http://matthewjamestaylor.com/blog/ultimate-multi-column-liquid-layouts-em-and-pixel-widths) with @media calls for 
 responsive behaviour.
 
-It adjusts the default bootstrap layout to replace the traditional header area with the custom menu below allowing
+It adjusts the default bootstrapbase layout to replace the traditional header area with the custom menu below allowing
 the familiar branding rather than the small logo within the fixed custom menu. It also replaces the login info to
-the right of that header along with the language menu, removing these from the custommenu bar. The theme currently
-has a 'standard' url based logo setting although it is anticipated that this will be updated when the new filepicker
-setting is integrated.
+the right of that header along with the language menu, removing these from the custommenu bar.
 
 In the main body of the page, the buckle theme replaces the default icons, many of which are hidden by the default
-bootstrap theme.
+bootstrapbase theme.
 
 Additional settings are kept to a minimum in this theme (logo, customcss and footnote) although it is anticipated
-that themes built on this will utilise settings to a great effect in customising bootstrap in future
+that themes built on this will utilise settings to a great effect in customising bootstrapbase in future
 
 The theme provides several css files
 * reset.css - which contains specific overrides for the parent css
