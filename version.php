@@ -27,6 +27,12 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2013041400;
-$plugin->requires  = 2013040500;
 $plugin->component = 'theme_buckle';
+$plugin->version   = 2013050600;
+$plugin->release = '0.8';
+$plugin->maturity = MATURITY_BETA;
+
+$plugin->requires  = 2013040500;
+$plugin->dependencies = array(
+    'theme_bootstrapbase'  => 2013040500
+);
