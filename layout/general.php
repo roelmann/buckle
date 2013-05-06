@@ -108,17 +108,17 @@ echo $OUTPUT->doctype() ?>
             <div id="region-post-box">
 
                 <div id="region-main-wrap">
-                    <div id="region-main">
+                    <section id="region-main">
                         <div class="region-content">
                             <?php echo $coursecontentheader; ?>
                             <?php echo $OUTPUT->main_content() ?>
                             <?php echo $coursecontentfooter; ?>
                         </div> <!-- close region-content -->
-                    </div> <!-- close region-main -->
+                    </section> <!-- close region-main -->
                 </div> <!-- close region-main-wrap -->
 
                 <?php if ($hassidepre OR (right_to_left() AND $hassidepost)) { ?>
-                <div id="region-pre" class="block-region">
+                <aside id="region-pre" > <div class="block-region">
                     <div class="region-content">
                             <?php
                         if (!right_to_left()) {
@@ -128,11 +128,11 @@ echo $OUTPUT->doctype() ?>
                     } ?>
 
                     </div> <!-- close region-content -->
-                </div> <!-- close region-pre block-region -->
+                </div></aside> <!-- close region-pre block-region -->
                 <?php } ?>
 
                 <?php if ($hassidepost OR (right_to_left() AND $hassidepre)) { ?>
-                <div id="region-post" class="block-region">
+                <aside id="region-post"> <div class="block-region">
                     <div class="region-content">
                            <?php
                        if (!right_to_left()) {
@@ -141,7 +141,7 @@ echo $OUTPUT->doctype() ?>
                            echo $OUTPUT->blocks_for_region('side-pre');
                     } ?>
                     </div> <!-- close region-content -->
-                </div> <!-- close region-post block-region -->
+                </div> </aside> <!-- close region-post block-region -->
                 <?php } ?>
 
             </div> <!-- close region-post-box -->
