@@ -29,7 +29,6 @@ hr {
 
 #page-header,
 #custommenu,
-.navbar,
 #page-content,
 #page-footer,
 #region-main-box,
@@ -38,6 +37,11 @@ hr {
     float: none;
     position: relative;
     width: 100%;
+}
+.navbar{
+    clear: both;
+    float: none;
+    position: relative;
 }
 
 #region-main,
