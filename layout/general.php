@@ -165,6 +165,15 @@ echo $OUTPUT->doctype() ?>
     <?php } ?>
     <div class="clearfix"></div>
 </div>
+<?php
+    $useragent = '';
+    if (!empty($_SERVER['HTTP_USER_AGENT'])) {
+        $useragent = $_SERVER['HTTP_USER_AGENT'];
+    }
+    if (strpos($useragent, 'MSIE 8') || strpos($useragent, 'MSIE 7')) {
+		$PAGE->requires->js(new moodle_url('https://raw.github.com/scottjehl/Respond/master/respond.min.js'));
+    }
+?>
 <?php echo $OUTPUT->standard_end_of_body_html() ?>
 </body>
 </html>
